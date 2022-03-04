@@ -1,3 +1,4 @@
+from distutils import command
 import tkinter
 import subprocess
 from tkinter import *
@@ -6,6 +7,7 @@ import os
 import sys
 import pickle
 import time
+from turtle import width
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -232,6 +234,10 @@ open_browser = tkinter.Button(root, width=20,  text="Open Chrome Browser", comma
 open_browser.grid(row=22, column=1)
 upload_folder_input_button = tkinter.Button(root, width=20, text="Add NFTs Upload Folder", command=upload_folder_input)
 upload_folder_input_button.grid(row=21, column=1)
+# creates button to upload attribute CSV
+upload_attr_input_button = tkinter.Button(root, width=20, text="Add NFT Attributes Folder", command=upload_attr_input)
+upload_attr_input_button.grid(row=26, column=1)
+
 try:
     with open(save_file_path(), "rb") as infile:
         new_dict = pickle.load(infile)
