@@ -14,8 +14,8 @@ from selenium.webdriver.support import expected_conditions as ExpectedConditions
 from selenium.webdriver.support.ui import Select
 
 root = Tk()
-root.geometry('500x400')
-root.title("NFTs Upload to OpenSea  ")
+root.geometry('500x500')
+root.title("NFTs Upload to OpenSea")
 input_save_list = ["NFTs folder :", 0, 0, 0, 0, 0, 0, 0, 0]
 main_directory = os.path.join(sys.path[0])
 is_polygon = BooleanVar()
@@ -35,13 +35,22 @@ def open_chrome_profile():
 def save_file_path():
     return os.path.join(sys.path[0], "Save_file.cloud") 
 
-# ask for directory on clicking button, changes button name.
+# ask for image directory on clicking button, changes button name.
 def upload_folder_input():
-    global upload_path
-    upload_path = filedialog.askdirectory()
-    Name_change_img_folder_button(upload_path)
+    global image_upload_path
+    image_upload_path = filedialog.askdirectory()
+    Name_change_img_folder_button(image_upload_path)
 
 def Name_change_img_folder_button(upload_folder_input):
+    upload_folder_input_button["text"] = upload_folder_input
+
+# prompts user to choose directory for NFT attribute selection
+def upload_attr_input():
+    global attr_upload_path
+    attr_upload_path = filedialog.askdirectory()
+    Name_change_attr_folder_button(attr_upload_path)
+
+def Name_change_attr_folder_button(upload_folder_input):
     upload_folder_input_button["text"] = upload_folder_input
 
 class InputField:
