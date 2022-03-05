@@ -172,6 +172,18 @@ def main_program_loop():
         desc.send_keys(loop_description)
         time.sleep(0.5)
 
+        # locates and clicks button to add properties
+        add_properties_expand = driver.find_element_by_xpath(
+            '//*[@aria-label="Add properties"]')
+        add_properties_expand.click()
+        time.sleep(0.5)
+
+        # verifies that the dialog box is present
+        wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]')
+
+        # locates and enters background key
+        background_key_input = driver.find_element_by_xpath()
+
         # Select Polygon blockchain if applicable
         if is_polygon.get():
             blockchain_button = driver.find_element(By.XPATH, '//*[@id="__next"]/div[1]/main/div/div/section/div/form/div[7]/div/div[2]')
