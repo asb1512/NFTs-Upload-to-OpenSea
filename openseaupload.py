@@ -235,6 +235,22 @@ def main_program_loop():
         add_more_button.click()
         time.sleep(0.25)
 
+        # locates and enters head attribute
+        head_attribute_input = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[4]/td[1]//*/input')
+        head_attribute_input.send_keys("head")
+
+        # locates and enters head attribute value
+        head_value_input = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[4]/td[2]//*/input')
+        head_value_input.send_keys(attr_list[start_num - 1]["head"])
+
+        # locates and clicks 'Add more' button to add another attribute group
+        add_more_button = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
+        add_more_button.click()
+        time.sleep(0.25)
+
         # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
         # Select Polygon blockchain if applicable
