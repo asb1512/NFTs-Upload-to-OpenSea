@@ -110,6 +110,7 @@ def save():
 # _____MAIN_CODE_____
 def main_program_loop():
     ###START###
+    print("Iteration Count: " + str(start_num))
     project_path = main_directory
     file_path = upload_path
     collection_link = collection_link_input.input_field.get()
