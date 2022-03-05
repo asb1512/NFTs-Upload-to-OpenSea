@@ -287,6 +287,11 @@ def main_program_loop():
         add_more_button.click()
         time.sleep(0.25)
 
+        # locates and clicks 'Save' button to set attributes for NFT
+        save_attributes_button = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/footer/button')
+        save_attributes_button.click()
+
         # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
         # Select Polygon blockchain if applicable
