@@ -292,6 +292,21 @@ def main_program_loop():
             '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/footer/button')
         save_attributes_button.click()
 
+        # locates added properties block to verify attributes were saved
+        wait_xpath('//*/div[@class="AssetForm--properties"]')
+        # verifies background attr
+        wait_xpath('//*/div[@class="AssetForm--properties"]/a[1]')
+        # verifies eyes attr
+        wait_xpath('//*/div[@class="AssetForm--properties"]/a[2]')
+        # verifies hair attr
+        wait_xpath('//*/div[@class="AssetForm--properties"]/a[3]')
+        # verifies head attr
+        wait_xpath('//*/div[@class="AssetForm--properties"]/a[4]')
+        # verifies mouth attr
+        wait_xpath('//*/div[@class="AssetForm--properties"]/a[5]')
+        # verifies nose attr
+        wait_xpath('//*/div[@class="AssetForm--properties"]/a[6]')
+
         # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
         # Select Polygon blockchain if applicable
