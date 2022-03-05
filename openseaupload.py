@@ -7,6 +7,7 @@ import os
 import sys
 import pickle
 import time
+import csv
 from turtle import width
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -15,6 +16,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as ExpectedConditions
 from selenium.webdriver.support.ui import Select
 
+# setting up native window
 root = Tk()
 root.geometry('500x500')
 root.title("NFTs Upload to OpenSea")
@@ -23,6 +25,7 @@ main_directory = os.path.join(sys.path[0])
 is_polygon = BooleanVar()
 is_polygon.set(False)
 
+# opening chrome instance
 def open_chrome_profile():
     subprocess.Popen(
         [
@@ -46,14 +49,16 @@ def upload_folder_input():
 def Name_change_img_folder_button(upload_folder_input):
     upload_folder_input_button["text"] = upload_folder_input
 
-# prompts user to choose directory for NFT attribute selection
-def upload_attr_input():
-    global attr_upload_path
-    attr_upload_path = filedialog.askdirectory()
-    Name_change_attr_folder_button(attr_upload_path)
+# once CSV loaded, will parse info into dictionary
+def parse_csv_attributes():
+    with open('data.csv', mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        return list(csv_reader)
 
-def Name_change_attr_folder_button(upload_folder_input):
-    upload_folder_input_button["text"] = upload_folder_input
+# coverts dictionary of dictionaries into a list of dictionaires, allowing rows
+# to be accessed by their index
+attr_list = parse_csv_attributes()
+print(attr_list)
 
 class InputField:
     def __init__(self, label, row_io, column_io, pos, master=root):
@@ -223,20 +228,21 @@ def main_program_loop():
         start_num = start_num + 1
         print('NFT creation completed!')
 
+
 #####BUTTON ZONE#######
+isPolygon = tkinter.Checkbutton(
+    root, text='Polygon Blockchain', var=is_polygon)
+isPolygon.grid(row=20, column=0)
+upload_folder_input_button = tkinter.Button(
+    root, width=20, text="Add NFTs Upload Folder", command=upload_folder_input)
+upload_folder_input_button.grid(row=21, column=1)
+open_browser = tkinter.Button(
+    root, width=20,  text="Open Chrome Browser", command=open_chrome_profile)
+open_browser.grid(row=23, column=1)
 button_save = tkinter.Button(root, width=20, text="Save Form", command=save) 
-button_save.grid(row=23, column=1)
+button_save.grid(row=24, column=1)
 button_start = tkinter.Button(root, width=20, bg="green", fg="white", text="Start", command=main_program_loop)
 button_start.grid(row=25, column=1)
-isPolygon = tkinter.Checkbutton(root, text='Polygon Blockchain', var=is_polygon)
-isPolygon.grid(row=20, column=0)
-open_browser = tkinter.Button(root, width=20,  text="Open Chrome Browser", command=open_chrome_profile)
-open_browser.grid(row=22, column=1)
-upload_folder_input_button = tkinter.Button(root, width=20, text="Add NFTs Upload Folder", command=upload_folder_input)
-upload_folder_input_button.grid(row=21, column=1)
-# creates button to upload attribute CSV
-upload_attr_input_button = tkinter.Button(root, width=20, text="Add NFT Attributes Folder", command=upload_attr_input)
-upload_attr_input_button.grid(row=26, column=1)
 
 try:
     with open(save_file_path(), "rb") as infile:
