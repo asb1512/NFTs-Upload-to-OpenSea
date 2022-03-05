@@ -220,6 +220,11 @@ def main_program_loop():
             '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[3]/td[1]//*/input')
         hair_attribute_input.send_keys("hair")
 
+        # locates and enters hair attribute value
+        hair_value_input = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[3]/td[2]//*/input')
+        hair_value_input.send_keys(attr_list[start_num - 1]["hair"])
+
         # Select Polygon blockchain if applicable
         if is_polygon.get():
             blockchain_button = driver.find_element(By.XPATH, '//*[@id="__next"]/div[1]/main/div/div/section/div/form/div[7]/div/div[2]')
