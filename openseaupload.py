@@ -58,7 +58,6 @@ def parse_csv_attributes():
 # coverts dictionary of dictionaries into a list of dictionaires, allowing rows
 # to be accessed by their index
 attr_list = parse_csv_attributes()
-print(attr_list)
 
 class InputField:
     def __init__(self, label, row_io, column_io, pos, master=root):
