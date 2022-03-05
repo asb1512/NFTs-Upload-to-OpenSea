@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# ignore internal dev notes
+notes.md
+
+# ignore CSV of data attributes
+data.csv
