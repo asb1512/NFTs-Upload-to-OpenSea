@@ -181,10 +181,23 @@ def main_program_loop():
         # verifies that the dialog box is present
         wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]')
 
-        # locates and enters background key
+        # locates and enters background attribute
         background_attribute_input = driver.find_element_by_xpath(
             '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[1]/td[1]//*/input')
         background_attribute_input.send_keys("background")
+
+        # locates and enters background attribute value
+        background_value_input = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[1]/td[2]//*/input')
+        background_value_input.send_keys(
+            attr_list[start_num - 1]["background"])
+
+        # locates and clicks 'Add more' button to add another attribute group
+        add_more_button = driver.find_element_by_xpath(
+            '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
+        add_more_button.click()
+        time.sleep(0.25)
+
 
         # Select Polygon blockchain if applicable
         if is_polygon.get():
