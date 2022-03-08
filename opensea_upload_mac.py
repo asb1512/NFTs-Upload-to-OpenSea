@@ -36,7 +36,8 @@ def open_chrome_profile():
             "Google Chrome",
             "--args",
             "--remote-debugging-port=8989",
-            "--user-data-dir=/Users/<replace_with_your_username>/Library/Application Support/Google/Chrome/Default"
+            # .../Users/<your_own_username_here>/Library...
+            "--user-data-dir=/Users/andrewbourgeois/Library/Application Support/Google/Chrome/Default"
         ]
     )
 
