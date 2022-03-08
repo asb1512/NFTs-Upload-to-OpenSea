@@ -31,12 +31,13 @@ is_polygon.set(False)
 def open_chrome_profile():
     subprocess.Popen(
         [
-            "start",
-            "chrome",
+            "open",
+            "-na",
+            "Google Chrome",
+            "--args",
             "--remote-debugging-port=8989",
-            "--user-data-dir=" + main_directory + "/chrome_profile",
-        ],
-        shell=True,
+            "--user-data-dir=/Users/<replace_with_your_username>/Library/Application Support/Google/Chrome/Default"
+        ]
     )
 
 
@@ -137,8 +138,8 @@ def main_program_loop():
         opt = Options()
         opt.add_experimental_option("debuggerAddress", "localhost:8989")
         driver = webdriver.Chrome(
-            executable_path=project_path + "/chromedriver.exe",
-            chrome_options=opt,
+            executable_path = "/usr/local/bin/chromedriver",
+            chrome_options = opt,
         )
         wait = WebDriverWait(driver, 60)
 
