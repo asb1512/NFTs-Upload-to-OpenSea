@@ -26,8 +26,6 @@ is_polygon = BooleanVar()
 is_polygon.set(False)
 
 # opening chrome instance
-
-
 def open_chrome_profile():
     subprocess.Popen(
         [
