@@ -8,6 +8,7 @@ import sys
 import pickle
 import time
 import csv
+import random
 from turtle import width
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -44,13 +45,10 @@ def save_file_path():
     return os.path.join(sys.path[0], "Save_file.cloud")
 
 # ask for image directory on clicking button, changes button name.
-
-
 def upload_folder_input():
     global image_upload_path
     image_upload_path = filedialog.askdirectory()
     Name_change_img_folder_button(image_upload_path)
-
 
 def Name_change_img_folder_button(upload_folder_input):
     upload_folder_input_button["text"] = upload_folder_input
