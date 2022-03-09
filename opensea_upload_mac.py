@@ -40,7 +40,6 @@ def open_chrome_profile():
         ]
     )
 
-
 def save_file_path():
     return os.path.join(sys.path[0], "Save_file.cloud")
 
@@ -160,13 +159,13 @@ def main_program_loop():
         while end_num >= start_num:
             print("Start creating NFT " + loop_title + str(start_num))
             driver.get(collection_link)
-            # time.sleep(3)
+            time.sleep(2)
 
             wait_xpath('//*[@id="__next"]/div[1]/main/div/div/div[1]/span/a')
             additem = driver.find_element_by_xpath(
                 '//*[@id="__next"]/div[1]/main/div/div/div[1]/span/a')
             additem.click()
-            time.sleep(1)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             wait_xpath('//*[@id="media"]')
             imageUpload = driver.find_element_by_xpath('//*[@id="media"]')
@@ -177,15 +176,15 @@ def main_program_loop():
             name = driver.find_element_by_xpath('//*[@id="name"]')
             # +1000 for other folders #change name before "#"
             name.send_keys(loop_title + str(start_num))
-            time.sleep(0.5)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             ext_link = driver.find_element_by_xpath('//*[@id="external_link"]')
             ext_link.send_keys(loop_external_link)
-            time.sleep(0.5)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             desc = driver.find_element_by_xpath('//*[@id="description"]')
             desc.send_keys(loop_description)
-            time.sleep(0.5)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
             # Adding Properties to your NFT
@@ -195,7 +194,7 @@ def main_program_loop():
             add_properties_expand = driver.find_element_by_xpath(
                 '//*[@aria-label="Add properties"]')
             add_properties_expand.click()
-            time.sleep(0.5)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # verifies that the dialog box is present
             wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]')
@@ -204,103 +203,115 @@ def main_program_loop():
             background_attribute_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[1]/td[1]//*/input')
             background_attribute_input.send_keys("background")
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters background attribute value
             background_value_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[1]/td[2]//*/input')
             background_value_input.send_keys(
                 attr_list[start_num - 1]["background"])
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Add more' button to add another attribute group
             add_more_button = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
             add_more_button.click()
-            time.sleep(0.25)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters eyes attribute
             wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[2]/td[1]//*/input')
             eyes_attribute_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[2]/td[1]//*/input')
             eyes_attribute_input.send_keys("eyes")
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters eyes attribute value
             eyes_value_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[2]/td[2]//*/input')
             eyes_value_input.send_keys(attr_list[start_num - 1]["eyes"])
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Add more' button to add another attribute group
             add_more_button = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
             add_more_button.click()
-            time.sleep(0.25)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters hair attribute
             wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[3]/td[1]//*/input')
             hair_attribute_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[3]/td[1]//*/input')
             hair_attribute_input.send_keys("hair")
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters hair attribute value
             hair_value_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[3]/td[2]//*/input')
             hair_value_input.send_keys(attr_list[start_num - 1]["hair"])
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Add more' button to add another attribute group
             add_more_button = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
             add_more_button.click()
-            time.sleep(0.25)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters head attribute
             wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[4]/td[1]//*/input')
             head_attribute_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[4]/td[1]//*/input')
             head_attribute_input.send_keys("head")
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters head attribute value
             head_value_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[4]/td[2]//*/input')
             head_value_input.send_keys(attr_list[start_num - 1]["head"])
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Add more' button to add another attribute group
             add_more_button = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
             add_more_button.click()
-            time.sleep(0.25)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters mouth attribute
             wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[5]/td[1]//*/input')
             mouth_attribute_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[5]/td[1]//*/input')
             mouth_attribute_input.send_keys("mouth")
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters mouth attribute value
             mouth_value_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[5]/td[2]//*/input')
             mouth_value_input.send_keys(attr_list[start_num - 1]["mouth"])
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Add more' button to add another attribute group
             add_more_button = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
             add_more_button.click()
-            time.sleep(0.25)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters nose attribute
             wait_xpath('//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[6]/td[1]//*/input')
             nose_attribute_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[6]/td[1]//*/input')
             nose_attribute_input.send_keys("nose")
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and enters nose attribute value
             nose_value_input = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/*/table/tbody/tr[6]/td[2]//*/input')
             nose_value_input.send_keys(attr_list[start_num - 1]["nose"])
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Add more' button to add another attribute group
             add_more_button = driver.find_element_by_xpath(
                 '//*[@aria-modal="true" and @role="dialog" and @class="Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 Modalreact__Dialog-sc-xyql9f-0 elqhCm jYqxGr ksFzlZ AgZqC"]/section/button')
             add_more_button.click()
-            time.sleep(0.25)
+            time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             # locates and clicks 'Save' button to set attributes for NFT
             save_attributes_button = driver.find_element_by_xpath(
@@ -335,6 +346,7 @@ def main_program_loop():
                 polygon_button = driver.find_element(
                     By.XPATH, polygon_button_location)
                 polygon_button.click()
+                time.sleep(round(random.uniform(0.1, 1.5), 3))
 
             create = driver.find_element_by_xpath(
                 '//*[@id="__next"]/div[1]/main/div/div/section/div[2]/form/div/div[1]/span/button')
