@@ -116,13 +116,13 @@ def save():
 
 # _____MAIN_CODE_____
 def main_program_loop():
+    start_num = int(start_num_input.input_field.get())
     ###START###
     if attr_list[start_num - 1]["parler"] == "false":
         print("Iteration Count: " + str(start_num))
         project_path = main_directory
         file_path = upload_path
         collection_link = collection_link_input.input_field.get()
-        start_num = int(start_num_input.input_field.get())
         end_num = int(end_num_input.input_field.get())
         loop_price = float(price.input_field.get())
         loop_title = title.input_field.get()
@@ -430,4 +430,5 @@ try:
 except FileNotFoundError:
     pass
 #####BUTTON ZONE END#######
+
 root.mainloop()
